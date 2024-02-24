@@ -31,7 +31,7 @@ app.layout = dbc.Container([
                 ])
             ]),
         ], width=8),
-    ],className='mb-2 mt-2'),
+    ],className='mb-2 mt-3'),
     dbc.Row([
         dbc.Col([
             dbc.Card([
