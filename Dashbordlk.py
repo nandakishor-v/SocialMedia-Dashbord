@@ -22,7 +22,7 @@ app.layout = dbc.Container([
             ],className='mb-2'),
             dbc.Card([
                 dbc.CardBody([
-                     dbc.CardLink("Nandakishor V", target="_blank",
+                     dbc.CardLink("Nandakishor V", target="_blank",  # Link to the resume
                                  href="https://drive.google.com/file/d/1RnodqYH0kgT0RiG-WGA5yqs745E6HEgr/view?usp=drive_link"
                     )
                 ])
