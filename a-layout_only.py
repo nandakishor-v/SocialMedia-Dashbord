@@ -15,13 +15,16 @@ from wordcloud import WordCloud
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 
 app.layout = dbc.Container([
-    dbc.Row([
+    dbc.Row([                                               # Row 1 with 2 col
         dbc.Col([
             dbc.Card([
-             dbc.CardImg(src='./assets/linkedin-logo2.png')
+             dbc.CardImg(src='./assets/linkedin-logo2.png') #social media logo image 
             ],className='mb-2'),
             dbc.Card([
                 dbc.CardBody([
+                     dbc.CardLink("Nandakishor V", target="_blank",
+                                 href="https://drive.google.com/file/d/1RnodqYH0kgT0RiG-WGA5yqs745E6HEgr/view?usp=drive_link"
+                    )
                 ])
             ]),
         ], width=2),
@@ -32,7 +35,7 @@ app.layout = dbc.Container([
             ]),
         ], width=8),
     ],className='mb-2 mt-3'),
-    dbc.Row([
+    dbc.Row([                                               # Row 2 with 5 col
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
@@ -64,7 +67,7 @@ app.layout = dbc.Container([
             ]),
         ], width=2),
     ],className='mb-2'),
-    dbc.Row([
+    dbc.Row([                                              # Row 3 with 2 col
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
@@ -78,7 +81,7 @@ app.layout = dbc.Container([
             ]),
         ], width=4),
     ],className='mb-2'),
-    dbc.Row([
+    dbc.Row([                                              # Row 4 with 3 col
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
