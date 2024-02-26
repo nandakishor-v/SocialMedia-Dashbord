@@ -9,12 +9,19 @@ from datetime import date
 import calendar
 from wordcloud import WordCloud
 
+# Lottie animations links *************************************************
 url_coonections = "https://assets9.lottiefiles.com/private_files/lf30_5ttqPi.json"
 url_companies = "https://assets9.lottiefiles.com/packages/lf20_EzPrWM.json"
 url_msg_in = "https://assets9.lottiefiles.com/packages/lf20_8wREpI.json"
 url_msg_out = "https://assets2.lottiefiles.com/packages/lf20_Cc8Bpg.json"
 url_reactions = "https://assets2.lottiefiles.com/packages/lf20_nKwET0.json"
 options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
+
+# Import App data from csv sheets **************************************
+df_cnt = pd.read_csv("Connections.csv")
+df_cnt["Connected On"] = pd.to_datetime(df_cnt["Connected On"])
+df_cnt["month"] = df_cnt["Connected On"].dt.month
+df_cnt['month'] = df_cnt['month'].apply(lambda x: calendar.month_abbr[x])
 
 
 # Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
@@ -66,9 +73,9 @@ dbc.Row([  # Row 1 with 2 col
     dbc.Col([
         dbc.Card([
             dbc.CardBody([
-                dbc.CardHeader(Lottie(options=options, style={'width': '65px', 'height': '50px'}, url=url_companies)),
+                dbc.CardHeader(Lottie(options=options, style={'width': '60px', 'height': '60px'}, url=url_companies)),
                 dbc.CardBody([
-                    html.H6('Companies Following'),
+                    html.H6('Companies'),
                     html.H2(id='content-companies', children="000")
                 ], style={'textAlign': 'center'})
             ])
@@ -150,19 +157,25 @@ dbc.Row([  # Row 1 with 2 col
 ], fluid=True)
 
 
-@app.callback(                                                  # Updating the 5 number cards in row 2
-    Output('content-connections','children'),
-    Output('content-companies','children'),
-    Output('content-msg-in','children'),
-    Output('content-msg-out','children'),
-    Output('content-reactions','children'),
-    Input('my-date-picker-start','date'),
-    Input('my-date-picker-end','date'),
+@app.callback(  # Updating the 5 number cards in row 2
+    Output('content-connections', 'children'),
+    Output('content-companies', 'children'),
+    Output('content-msg_in', 'children'),  
+    Output('content-msg_out', 'children'),
+    Output('content-reactions', 'children'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
 )
+def update_small_cards(start_date, end_date):
+    dff_c = df_cnt.copy()  # Connections
+    dff_c = dff_c[(dff_c['Connected On'] >= start_date) & (dff_c['Connected On'] <= end_date)]
+    conctns_num = len(dff_c)
+    compns_num = len(dff_c['Company'].unique())
+    return conctns_num, compns_num, 0, 0, 0  
 
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)
     
     
-    
+  
