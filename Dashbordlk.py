@@ -23,6 +23,16 @@ df_cnt["Connected On"] = pd.to_datetime(df_cnt["Connected On"])
 df_cnt["month"] = df_cnt["Connected On"].dt.month
 df_cnt['month'] = df_cnt['month'].apply(lambda x: calendar.month_abbr[x])
 
+df_invite = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/Invitations.csv")
+df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"])
+
+df_react = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/Reactions.csv")
+df_react["Date"] = pd.to_datetime(df_react["Date"])
+
+df_msg = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/messages.csv")
+df_msg["DATE"] = pd.to_datetime(df_msg["DATE"])
+
+
 
 # Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
