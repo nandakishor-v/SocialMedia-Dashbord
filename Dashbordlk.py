@@ -24,12 +24,14 @@ df_cnt["month"] = df_cnt["Connected On"].dt.month
 df_cnt['month'] = df_cnt['month'].apply(lambda x: calendar.month_abbr[x])
 
 df_invite = pd.read_csv("Invitations.csv")
-df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"])
+df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"], format="%m/%d/%y, %I:%M %p", errors='coerce')
+
 
 df_react = pd.read_csv("Reactions.csv")
-df_react["Date"] = pd.to_datetime(df_react["Date"])
+df_react["Date"] = pd.to_datetime(df_react["Date"], format="%m/%d/%Y %H:%M")
 
-
+df_msg = pd.read_csv("messages.csv")
+df_msg["DATE"] = pd.to_datetime(df_msg["DATE"])
 
 
 
@@ -192,6 +194,114 @@ def update_small_cards(start_date, end_date):
     reactns_num = len(dff_r)
 
     return conctns_num, compns_num, in_num,out_num,reactns_num
+
+ # Line Chart ***********************************************************
+@app.callback(
+    Output('line-chart', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def update_line(start_date, end_date):
+    dff = df_cnt.copy()
+    dff = dff[(dff['Connected On'] >= start_date) & (dff['Connected On'] <= end_date)]
+    dff = dff["month"].value_counts().reset_index()
+    dff.columns = ['month', 'Total connections']
+
+    fig_line = px.line(dff, x='month', y='Total connections', template='ggplot2',
+                       title="Total Connections by Month Name")
+    fig_line.update_traces(mode="lines+markers", fill='tozeroy', line={'color': 'blue'})
+    fig_line.update_layout(margin=dict(l=20, r=20, t=30, b=20))
+
+    return fig_line
+
+
+ #***************************************** Bar chart 
+@app.callback(                               
+    Output('bar-chart', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def update_bar(start_date, end_date):
+    dff = df_cnt.copy()
+    dff = dff[(dff['Connected On'] >= start_date) & (dff['Connected On'] <= end_date)]
+
+    # Exclude 'NIL' values
+    dff = dff[dff['Company'] != 'NIL']
+
+    dff_grouped = dff.groupby('Company').size().reset_index(name='Total connections')
+
+    # Select the top 10 companies
+    dff_grouped = dff_grouped.sort_values(by='Total connections', ascending=False).head(10)
+
+    fig_bar = px.bar(dff_grouped, x='Total connections', y='Company', template='ggplot2',
+                     orientation='h', title="Top 10 Companies by Total Connections")
+    fig_bar.update_yaxes(tickangle=45)
+    fig_bar.update_layout(margin=dict(l=20, r=20, t=30, b=20))
+    fig_bar.update_traces(marker_color='blue')
+
+    return fig_bar
+
+# Pie Chart ************************************************************
+@app.callback(
+    Output('pie-chart', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def update_pie(start_date, end_date):
+    dff = df_msg.copy()
+    dff = dff[(dff['DATE'] >= start_date) & (dff['DATE'] <= end_date)]
+
+    msg_sent = len(dff[dff['FROM'] == 'Pranav Anandraj'])
+    msg_rcvd = len(dff[dff['FROM'] != 'Pranav Anandraj'])
+
+    fig_pie = px.pie(
+        names=['Sent', 'Received'],
+        values=[msg_sent, msg_rcvd],
+        template='ggplot2',
+        title="Messages Sent & Received"
+    )
+    
+    fig_pie.update_layout(margin=dict(l=20, r=20, t=30, b=20))
+    fig_pie.update_traces(marker_colors=['red', 'blue'])
+
+    return fig_pie
+
+from wordcloud import WordCloud
+
+@app.callback(
+    Output('wordcloud', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def update_wordcloud(start_date, end_date):
+    dff = df_cnt.copy()
+    dff = dff[(dff['Connected On'] >= start_date) & (dff['Connected On'] <= end_date)]
+    
+    # Remove occurrences of "NIL" in the 'Position' column
+    dff = dff[dff['Position'] != 'NIL']
+
+    positions = dff['Position'].astype(str)
+
+    my_wordcloud = WordCloud(
+        background_color='white',
+        height=275
+    ).generate_from_text(' '.join(positions))
+
+    fig_wordcloud = px.imshow(my_wordcloud, template='ggplot2',
+                              title="Word Cloud of Positions")
+    fig_wordcloud.update_layout(margin=dict(l=20, r=20, t=30, b=20))
+    fig_wordcloud.update_xaxes(visible=False)
+    fig_wordcloud.update_yaxes(visible=False)
+
+    return fig_wordcloud
+
+
+
+
+
+
+
+
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)
