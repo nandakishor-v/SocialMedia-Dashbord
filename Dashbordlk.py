@@ -29,8 +29,7 @@ df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"])
 df_react = pd.read_csv("Reactions.csv")
 df_react["Date"] = pd.to_datetime(df_react["Date"])
 
-df_msg = pd.read_csv("messages.csv")
-df_msg["DATE"] = pd.to_datetime(df_msg["DATE"])
+
 
 
 
@@ -192,7 +191,7 @@ def update_small_cards(start_date, end_date):
     dff_r = dff_r[(dff_r['Date']>=start_date) & (dff_r['Date']<=end_date)]
     reactns_num = len(dff_r)
 
-    return conctns_num, compns_num, in_num, out_num, reactns_num
+    return conctns_num, compns_num, in_num,out_num,reactns_num
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)
