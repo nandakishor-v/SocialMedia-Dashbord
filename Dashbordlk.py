@@ -51,7 +51,7 @@ dbc.Row([  # Row 1 with 2 col
         ], color="info"),
     ], width=8),
 ], className='mb-2 mt-3'),
-   dbc.Row([  # Row 2 with 5 col
+   dbc.Row([                                                               # Row 2 with 5 col
     dbc.Col([
         dbc.Card([
             dbc.CardBody([
@@ -108,36 +108,41 @@ dbc.Row([  # Row 1 with 2 col
         ]),
     ], width=2),
 ], className='mb-2'),
-    dbc.Row([                                              # Row 3 with 2 col
+  dbc.Row([                                     #Row 3 col 2
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    dcc.Graph(id='line-chart', figure={}),  #line chart
                 ])
             ]),
         ], width=6),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    dcc.Graph(id='bar-chart', figure={}),  #bar chart
                 ])
             ]),
         ], width=4),
     ],className='mb-2'),
-    dbc.Row([                                              # Row 4 with 3 col
+    dbc.Row([               # Row 4  col 3
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    dcc.Graph(id='TBD', figure={}),     # TBD
                 ])
             ]),
         ], width=3),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    dcc.Graph(id='pie-chart', figure={}),       # pie chart
                 ])
             ]),
         ], width=3),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    dcc.Graph(id='wordcloud', figure={}),   # wordcloud
                 ])
             ]),
         ], width=4),
@@ -145,6 +150,19 @@ dbc.Row([  # Row 1 with 2 col
 ], fluid=True)
 
 
+@app.callback(                                                  # Updating the 5 number cards in row 2
+    Output('content-connections','children'),
+    Output('content-companies','children'),
+    Output('content-msg-in','children'),
+    Output('content-msg-out','children'),
+    Output('content-reactions','children'),
+    Input('my-date-picker-start','date'),
+    Input('my-date-picker-end','date'),
+)
 
+    
 if __name__=='__main__':
-    app.run_server(debug=False, port=8001)
+    app.run_server(debug=False, port=8002)
+    
+    
+    
