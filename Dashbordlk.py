@@ -23,13 +23,13 @@ df_cnt["Connected On"] = pd.to_datetime(df_cnt["Connected On"])
 df_cnt["month"] = df_cnt["Connected On"].dt.month
 df_cnt['month'] = df_cnt['month'].apply(lambda x: calendar.month_abbr[x])
 
-df_invite = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/Invitations.csv")
+df_invite = pd.read_csv("Invitations.csv")
 df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"])
 
-df_react = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/Reactions.csv")
+df_react = pd.read_csv("Reactions.csv")
 df_react["Date"] = pd.to_datetime(df_react["Date"])
 
-df_msg = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Analytic_Web_Apps/Linkedin_Analysis/messages.csv")
+df_msg = pd.read_csv("messages.csv")
 df_msg["DATE"] = pd.to_datetime(df_msg["DATE"])
 
 
@@ -56,7 +56,7 @@ dbc.Row([  # Row 1 with 2 col
             dbc.CardBody([  # DCC Datapicker single
                 dcc.DatePickerSingle(
                     id='my-date-picker-start',
-                    date=date(2021, 3, 15),
+                    date=date(2021, 2, 15),
                     className='ml-5'
                 ),
                 dcc.DatePickerSingle(
@@ -177,12 +177,22 @@ dbc.Row([  # Row 1 with 2 col
     Input('my-date-picker-end', 'date'),
 )
 def update_small_cards(start_date, end_date):
-    dff_c = df_cnt.copy()  # Connections
-    dff_c = dff_c[(dff_c['Connected On'] >= start_date) & (dff_c['Connected On'] <= end_date)]
+    dff_c = df_cnt.copy()         # Connections
+    dff_c = dff_c[(dff_c['Connected On']>=start_date) & (dff_c['Connected On']<=end_date)]
     conctns_num = len(dff_c)
     compns_num = len(dff_c['Company'].unique())
-    return conctns_num, compns_num, 0, 0, 0  
 
+    dff_i = df_invite.copy()       # Invitations
+    dff_i = dff_i[(dff_i['Sent At']>=start_date) & (dff_i['Sent At']<=end_date)]
+   
+    in_num = len(dff_i[dff_i['Direction'] == 'INCOMING'])     # print(dff_i)
+    out_num = len(dff_i[dff_i['Direction'] == 'OUTGOING'])
+
+    dff_r = df_react.copy()      # Reactions
+    dff_r = dff_r[(dff_r['Date']>=start_date) & (dff_r['Date']<=end_date)]
+    reactns_num = len(dff_r)
+
+    return conctns_num, compns_num, in_num, out_num, reactns_num
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)
