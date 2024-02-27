@@ -1,13 +1,13 @@
-import dash
+import dash                              # pip install dash
 from dash import html, dcc
 from dash.dependencies import Output, Input
-from dash_extensions import Lottie
-import dash_bootstrap_components as dbc
-import plotly.express as px
-import pandas as pd
+from dash_extensions import Lottie                # pip install dash-extensions
+import dash_bootstrap_components as dbc           # pip install dash-bootstrap-components
+import plotly.express as px                         # pip install plotly
+import pandas as pd                                   # pip install pandas
 from datetime import date
 import calendar
-from wordcloud import WordCloud
+from wordcloud import WordCloud                            # pip install wordcloud
 
 # Lottie animations links *************************************************
 url_coonections = "https://assets9.lottiefiles.com/private_files/lf30_5ttqPi.json"
