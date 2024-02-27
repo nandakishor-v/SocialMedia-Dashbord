@@ -268,7 +268,7 @@ def update_pie(start_date, end_date):
 
     return fig_pie
 
-from wordcloud import WordCloud
+# **************************************************** WordCloud
 
 @app.callback(
     Output('wordcloud', 'figure'),
