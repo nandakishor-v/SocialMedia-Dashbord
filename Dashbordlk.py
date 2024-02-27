@@ -110,7 +110,7 @@ dbc.Row([  # Row 1 with 2 col
             dbc.CardBody([
                 dbc.CardHeader(Lottie(options=options, style={'width': '60px', 'height': '60px'}, url=url_msg_out)),
                 dbc.CardBody([
-                    html.H6('Messages Send'),
+                    html.H6('Invites Send'),
                     html.H2(id='content-msg_out', children="000")
                 ], style={'textAlign': 'center'})
             ])
