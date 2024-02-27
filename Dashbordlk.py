@@ -29,6 +29,8 @@ df_invite["Sent At"] = pd.to_datetime(df_invite["Sent At"], format="%m/%d/%y, %I
 
 df_react = pd.read_csv("Reactions.csv")
 df_react["Date"] = pd.to_datetime(df_react["Date"], format="%m/%d/%Y %H:%M")
+df_react["month"] = df_react['Date'].dt.month
+df_react['month'] = df_react['month'].apply(lambda x: calendar.month_abbr[x])
 
 df_msg = pd.read_csv("messages.csv")
 df_msg["DATE"] = pd.to_datetime(df_msg["DATE"])
@@ -295,13 +297,24 @@ def update_wordcloud(start_date, end_date):
 
     return fig_wordcloud
 
+#*********************************************TBD
+@app.callback(
+    Output('TBD', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
 
-
-
-
-
-
-
+def update_TBD(start_date,end_date):
+              dff= df_react.copy()
+              dff = dff[(dff['Date'] >= start_date) & (dff['Date'] <= end_date)]
+              dff = dff["month"].value_counts().reset_index()
+              dff.columns = ['month', 'Total Reaction']
+              fig_line = px.line(dff, x='month', y='Total Reaction', template='ggplot2',
+                   title="Total Reactions by Month Name")
+              fig_line.update_traces(mode="lines+markers", fill='tozeroy', line={'color': 'blue'})
+              fig_line.update_layout(margin=dict(l=20, r=20, t=30, b=20))
+              
+              return fig_line
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)
