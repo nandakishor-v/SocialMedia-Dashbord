@@ -1,0 +1,60 @@
+date,trauma,gender,age,period,words,support, companion ,ai
+07-03-2024 20:32,NO,Male,21 - 30 years of age,None,"Agitated, Anxious, Concerned, Confident, Confused, Enthusiastic, Happy, Hopeful, Lonely, Optimistic, Self-conscious, Thoughtful, Worried",Yes,Yes,Yes
+07-03-2024 20:35,YES,Prefer not to say,15 - 20 years of age,Over 1 year,"Anxious, Cheerful, Confident, Delighted, Disappointed, Enthusiastic, Fed up, Frustrated, Hopeful, Joyous, Lonely, Passionate, Sensitive, Spirited, Sympathetic",No,Yes,Yes
+07-03-2024 20:36,NO,Male,15 - 20 years of age,Over 1 year,"Accepted, Agitated, Anxious, Cheerful, Concerned, Confused, Depressed, Disappointed, Distraught, Distressed, Fatigued, Frustrated, Helpless, Hopeful, Jealous(y), Lonely, Miserable, Passionate, Sympathetic, Thoughtful, Vulnerable",Yes,Yes,Yes
+07-03-2024 20:37,NO,Male,Less than 15 years of age,None,"Anxious, Confident, Enthusiastic, Excited, Flustered, Happy, Impatient, Jealous(y), Lonely, Melancholy, Optimistic, Outraged, Passionate, Spirited, Thrilled, Vulnerable",No,Yes,Yes
+07-03-2024 21:02,YES,Female,15 - 20 years of age,Over 1 year,"Anxious, Concerned, Confident, Confused, Excited, Exhausted, Loved, Sad, Sympathetic, Thoughtful",Yes,Yes,Yes
+07-03-2024 21:24,NO,Male,21 - 30 years of age,None,"Anger, Depressed, Desperate, Disappointed, Hopeless, Infuriated, Lonely, Overwhelmed, Sad, Vulnerable",Yes,Yes,Yes
+07-03-2024 21:29,NO,Male,21 - 30 years of age,5 years and over,"Lonely, Petrified, Sorrow, Terrified, Vulnerable, Worried",No,Yes,Yes
+07-03-2024 21:45,YES,Male,21 - 30 years of age,Over 1 year,"Anxious, Confused, Depressed, Frustrated, Vulnerable",Yes,Yes,Yes
+07-03-2024 21:55,NO,Male,21 - 30 years of age,None,"Accepted, Anger, Concerned, Confident, Happy, Impatient, Loved, Overwhelmed, Relaxed, Self-conscious",Yes,Yes,Yes
+07-03-2024 21:59,NO,Male,15 - 20 years of age,None,"Anxious, Cheerful, Confident, Delighted, Exhausted, Happy, Impatient, Love, Loved, Optimistic, Sorrow, Thankful, Thoughtful",Yes,Yes,No
+07-03-2024 22:00,YES,Male,21 - 30 years of age,None,"Anger, Concerned, Enthusiastic, Happy, Irritated, Love, Optimistic, Peaceful, Relaxed, Thankful",Yes,No,Yes
+07-03-2024 22:03,YES,Female,21 - 30 years of age,None,"Anger, Anxious, Fed up, Helpless, Hopeless, Lonely, Optimistic, Overwhelmed, Thrilled, Worthless",Yes,Yes,Yes
+07-03-2024 22:31,NO,Male,21 - 30 years of age,None,"Confused, Depressed, Exhausted, Frustrated, Hopeful, Hopeless, Melancholy, Miserable, Outraged, Self-conscious",Yes,Yes,Yes
+07-03-2024 22:38,YES,Male,21 - 30 years of age,Over 1 year,"Accepted, Agitated, Anxious, Cheerful, Concerned, Depressed, Desperate, Disappointed, Distressed, Enthusiastic, Embarrassed",Yes,Yes,Yes
+07-03-2024 22:51,YES,Male,21 - 30 years of age,Between 6 months and 1 year,"Anger, Confused, Disappointed, Exhausted, Lonely",No,Yes,Yes
+07-03-2024 22:52,YES,Female,15 - 20 years of age,Less than 6 months,"Anger, Cheerful, Confused, Depressed, Exhausted, Helpless, Lonely",Yes,Yes,Yes
+07-03-2024 23:21,NO,Male,21 - 30 years of age,None,"Accepted, Anger, Anxious, Concerned, Confused, Depressed, Distressed, Exhausted, Fatigued, Fed up, Guilt, Happy, Humiliated, Irritated, Lonely, Sad, Surprised, Terrified",No,Yes,Yes
+07-03-2024 23:22,YES,Male,21 - 30 years of age,Less than 6 months,"Accepted, Confident, Confused, Depressed, Disappointed, Enthusiastic, Fatigued, Fed up, Frustrated, Guilt, Hopeless, Indifferent, Lonely, Loved, Miserable, Mixed-up, Passionate, Perplexed, Sad, Self-conscious, Spirited, Sympathetic, Vulnerable, Worried",Yes,No,Yes
+07-03-2024 23:31,YES,Male,21 - 30 years of age,None,"Accepted, Anger, Anxious, Concerned, Confident, Delighted, Encouraged, Enthusiastic, Excited, Happy, Love, Overjoyed, Passionate, Self-conscious, Sympathetic, Thankful, Thrilled",Yes,Yes,Yes
+08-03-2024 00:39,YES,Male,51 - 60 years of age,Less than 6 months,"Anger, Cheerful, Confident, Encouraged, Enthusiastic, Excited, Hopeful, Love, Loved, Optimistic, Overjoyed, Relaxed, Sympathetic, Thankful, Thoughtful, Thrilled",Yes,Yes,Yes
+08-03-2024 04:14,NO,Male,21 - 30 years of age,None,"Cheerful, Concerned, Desperate, Disappointed, Embarrassed, Excited, Guilt, Overwhelmed, Passionate, Peaceful, Thankful",Yes,Yes,Yes
+08-03-2024 05:05,YES,Female,21 - 30 years of age,5 years and over,"Cheerful, Confident, Excited, Hopeful, Indifferent, Optimistic, Overwhelmed, Passionate, Peaceful, Perplexed, Self-conscious, Sensitive, Thankful, Thoughtful, Vulnerable",No,Yes,No
+08-03-2024 06:41,NO,Female,21 - 30 years of age,None,"Embarrassed, Excited, Hopeful, Surprised, Thankful, Thoughtful",Yes,No,Yes
+08-03-2024 09:04,YES,Male,21 - 30 years of age,None,"Accepted, Cheerful, Confident, Encouraged, Enthusiastic, Excited, Happy, Hopeful, Joyous, Loved",Yes,Yes,Yes
+08-03-2024 09:13,YES,Male,15 - 20 years of age,Less than 6 months,"Accepted, Anger, Anxious, Concerned, Confused, Depressed, Disappointed, Distressed, Happy",Yes,No,Yes
+08-03-2024 10:37,YES,Female,41 - 50 years of age,5 years and over,"Accepted, Anger, Excited, Exhausted, Fatigued, Fear/Frightened, Frustrated, Hopeless, Irritated, Jealous(y), Lonely, Perturbed, Self-conscious, Sensitive, Surprised, Thankful, Thrilled, Vulnerable, Worthless",Yes,Yes,Yes
+08-03-2024 10:49,NO,Male,21 - 30 years of age,5 years and over,"Fear/Frightened, Frustrated, Terrified, Vulnerable, Worried, Worthless",Yes,Yes,Yes
+08-03-2024 10:59,YES,Female,31 - 40 years  of age,5 years and over,"Anger, Fed up, Flustered, Lonely, Outraged, Shame, Sorrow, Worried",Yes,Yes,No
+08-03-2024 11:44,YES,Male,21 - 30 years of age,None,"Accepted, Agitated, Anger, Cheerful, Confident, Confused, Disappointed, Distressed, Encouraged, Enthusiastic, Embarrassed, Excited, Exhausted, Fed up, Fear/Frightened, Frustrated, Happy, Helpless, Hopeful, Hopeless, Infuriated, Impatient, Irritated, Jealous(y), Lonely, Love, Loved, Mixed-up, Optimistic, Outraged, Overjoyed, Passionate, Peaceful, Relaxed, Sad, Sensitive, Spirited, Surprised, Sympathetic, Terrified, Thankful, Thoughtful, Threatened, Thrilled, Vulnerable, Worried",Yes,Yes,Yes
+08-03-2024 14:19,YES,Female,41 - 50 years of age,Over 1 year,"Accepted, Anger, Concerned, Distraught, Embarrassed, Fatigued, Helpless, Impatient, Perplexed, Sensitive",No,Yes,No
+08-03-2024 15:37,NO,Female,51 - 60 years of age,5 years and over,"Anger, Confused, Delighted, Exhausted, Fulfilled, Lonely, Optimistic, Outraged, Perturbed, Relaxed, Sensitive",No,No,Yes
+08-03-2024 17:30,NO,Female,21 - 30 years of age,None,"Anger, Cheerful, Confident, Distressed, Enthusiastic, Excited, Fatigued, Frustrated, Happy, Helpless, Loved, Overwhelmed, Relaxed, Sorrow, Thankful",Yes,Yes,No
+09-03-2024 00:38,YES,Male,31 - 40 years  of age,Less than 6 months,"Anger, Concerned, Confident, Depressed, Disappointed, Encouraged, Enthusiastic, Fatigued, Frustrated, Happy, Helpless, Impatient, Jubilant, Love, Optimistic, Peaceful, Thankful, Worthless",Yes,Yes,No
+09-03-2024 08:09,YES,Female,more than 60 years of age,5 years and over,"Accepted, Anxious, Cheerful, Concerned, Depressed, Disappointed, Encouraged, Happy, Sad, Sympathetic, Thankful",Yes,Yes,Yes
+09-03-2024 10:18,NO,Female,21 - 30 years of age,Over 1 year,"Infuriated, Lonely, Perturbed, Sad, Self-conscious, Sensitive, Sorrow, Terrified",No,No,No
+09-03-2024 10:19,YES,Female,31 - 40 years  of age,Between 6 months and 1 year,"Anger, Confused, Distraught, Exhausted, Fulfilled, Horrified, Irritated, Lonely, Sad, Shame, Sorrow",No,No,No
+09-03-2024 15:38,NO,Female,21 - 30 years of age,5 years and over,"Anger, Confident, Distressed, Embarrassed, Fear/Frightened, Fulfilled, Lonely, Miserable, Sympathetic, Thrilled",No,No,No
+09-03-2024 16:35,NO,Male,31 - 40 years  of age,5 years and over,"Anxious, Disappointed, Fed up, Helpless, Joyous, Overjoyed, Sensitive, Worthless",No,Yes,No
+09-03-2024 20:21,YES,Male,41 - 50 years of age,Over 1 year,"Accepted, Cheerful, Concerned, Confident, Delighted, Encouraged, Enthusiastic, Excited, Happy, Hopeful, Joyous",Yes,Yes,No
+10-03-2024 11:06,YES,Female,21 - 30 years of age,Less than 6 months,"Cheerful, Delighted, Disappointed, Fulfilled, Happy, Jubilant, Lonely, Optimistic, Sad",Yes,No,Yes
+10-03-2024 15:42,YES,Male,31 - 40 years  of age,None,"Anger, Desperate, Fed up, Guilt, Irritated, Lonely, Miserable, Sad",No,Yes,Yes
+10-03-2024 18:49,NO,Male,21 - 30 years of age,None,"Accepted, Cheerful, Concerned, Confused, Delighted, Encouraged, Happy, Hopeful, Jubilant, Love",Yes,Yes,No
+12-03-2024 19:31,YES,Male,21 - 30 years of age,Over 1 year,"Anger, Confused, Embarrassed, Fed up, Guilt, Lonely",No,Yes,Yes
+12-03-2024 20:02,NO,Male,21 - 30 years of age,None,"Accepted, Agitated, Cheerful, Concerned, Confident, Frustrated, Happy, Irritated, Jealous(y), Lonely, Love, Peaceful, Relaxed, Sad, Self-conscious",Yes,Yes,No
+12-03-2024 20:04,NO,Male,15 - 20 years of age,None,"Anxious, Confused, Exhausted, Happy, Hopeful, Impatient, Loved, Optimistic, Peaceful, Worried",Yes,Yes,Yes
+12-03-2024 20:06,YES,Prefer not to say,15 - 20 years of age,Between 6 months and 1 year,"Agitated, Concerned, Confident, Distressed, Miserable, Passionate, Sad, Self-conscious, Sympathetic, Vulnerable",No,No,No
+12-03-2024 20:07,YES,Female,21 - 30 years of age,Over 1 year,"Cheerful, Confused, Exhausted, Fatigued, Mixed-up, Optimistic, Passionate, Sensitive, Sympathetic, Thoughtful",Yes,No,No
+12-03-2024 20:11,NO,Prefer not to say,21 - 30 years of age,None,"Delighted, Happy, Impatient, Miserable, Outraged, Passionate, Peaceful, Relaxed, Terrified, Thrilled",No,Yes,Yes
+12-03-2024 20:12,YES,Male,41 - 50 years of age,Over 1 year,"Anger, Anxious, Delighted, Encouraged, Enthusiastic, Exhausted, Fear/Frightened, Impatient, Jubilant, Loved, Peaceful, Sympathetic",Yes,Yes,Yes
+12-03-2024 20:13,NO,Female,Less than 15 years of age,None,"Accepted, Agitated, Disappointed, Distraught, Excited, Flustered, Hopeful, Lonely, Love, Loved, Overjoyed, Sad, Thoughtful",Yes,No,No
+12-03-2024 20:15,YES,Prefer not to say,15 - 20 years of age,Less than 6 months,"Agitated, Anger, Anxious, Depressed, Desperate, Encouraged, Exhausted, Fear/Frightened, Indifferent, Melancholy, Overwhelmed, Thankful, Thoughtful",No,No,No
+12-03-2024 20:16,YES,Prefer not to say,Less than 15 years of age,Between 6 months and 1 year,"Anger, Anxious, Delighted, Desperate, Encouraged, Exhausted, Happy, Humiliated, Melancholy, Sensitive, Worried",Yes,No,No
+12-03-2024 20:18,NO,Prefer not to say,31 - 40 years  of age,None,"Accepted, Anxious, Disappointed, Fulfilled, Hopeless, Indifferent, Lonely, Love, Loved, Outraged, Self-conscious",No,Yes,Yes
+12-03-2024 20:19,YES,Female,21 - 30 years of age,Between 6 months and 1 year,"Agitated, Concerned, Excited, Exhausted, Guilt, Happy, Irritated, Jealous(y), Lonely, Passionate, Perturbed, Sorrow, Spirited",No,No,Yes
+12-03-2024 20:21,YES,Male,21 - 30 years of age,Over 1 year,"Anger, Confident, Confused, Disappointed, Embarrassed, Excited, Impatient, Jealous(y), Overwhelmed, Thankful",Yes,Yes,Yes
+13-03-2024 02:46,NO,Male,21 - 30 years of age,None,"Anger, Anxious, Confused, Depressed, Desperate, Encouraged, Exhausted, Hopeful, Indifferent, Optimistic",Yes,No,No
+13-03-2024 07:38,YES,Female,51 - 60 years of age,10 years and over,"Accepted, Anxious, Delighted, Excited, Exhausted, Happy, Hopeful, Impatient, Jealous(y), Peaceful",Yes,No,No
+13-03-2024 13:31,NO,Female,15 - 20 years of age,None,"Confused, Desperate, Distraught, Distressed, Infuriated, Jealous(y), Melancholy, Outraged, Perturbed, Shame, Surprised, Threatened, Thrilled",No,No,No
+13-03-2024 14:17,NO,Male,21 - 30 years of age,Between 6 months and 1 year,"Anger, Distraught, Enthusiastic, Embarrassed, Fed up, Lonely",No,No,No
