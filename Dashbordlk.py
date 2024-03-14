@@ -315,6 +315,9 @@ def update_TBD(start_date,end_date):
               fig_line.update_layout(margin=dict(l=20, r=20, t=30, b=20))
               
               return fig_line
+          
+          
+
     
 if __name__=='__main__':
     app.run_server(debug=False, port=8002)

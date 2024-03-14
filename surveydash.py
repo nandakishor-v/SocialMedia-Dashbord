@@ -6,8 +6,8 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 from datetime import date
-import calendar
 from wordcloud import WordCloud 
+import plotly.graph_objs as go
 
 
 
@@ -60,7 +60,7 @@ app.layout = dbc.Container([
                     style={'margin-left': '10px', 'margin-top': '10px'}  
                 ),
             ]),
-        ], color="info"),  #colour of the date part 
+        ], color="black"),  #colour of the date part 
         ], width=8),
     ],className='mb-2 mt-2'),
     dbc.Row([                                             # Row 2 with 5 col
@@ -114,7 +114,7 @@ app.layout = dbc.Container([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    dcc.Graph(id='line-chart', figure={}),  #line chart
+                    dcc.Graph(id='treemap', figure={}),  #treemap
                 ])
             ]),
         ], width=6),
@@ -130,24 +130,24 @@ app.layout = dbc.Container([
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    dcc.Graph(id='TBD', figure={}),     # TBD
+                    dcc.Graph(id='doughnut-graph', figure={}),     # doughnut-graph
                 ])
             ]),
         ], width=3),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    dcc.Graph(id='pie-chart', figure={}),       # pie chart
+                    dcc.Graph(id='funnel-chart', figure={}),       # funnel-chart
                 ])
             ]),
-        ], width=3),
+        ], width=4),
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
                     dcc.Graph(id='wordcloud', figure={}),   # wordcloud
                 ])
             ]),
-        ], width=4),
+        ], width=3),
     ],className='mb-2'),
 ], fluid=True)
 
@@ -196,6 +196,74 @@ def update_wordcloud(start_date, end_date):
     fig_wordcloud.update_yaxes(visible=False)
 
     return fig_wordcloud
+
+
+@app.callback(                 #barchart
+    Output('bar-chart', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def count_words(start_date, end_date):
+    dff_c = df_cnt.copy()
+    dff_c = dff_c[(dff_c['date'] >= start_date) & (dff_c['date'] <= end_date)]
+    words_column = dff_c['words']
+
+    word_count = {}
+    for row in words_column:
+        if isinstance(row, str):
+            words = row.split(',')
+            for word in words:
+                word = word.strip()  # Remove leading/trailing whitespaces
+                if word in word_count:
+                    word_count[word] += 1
+                else:
+                    word_count[word] = 1
+    sorted_word_count = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+    words, counts = zip(*sorted_word_count[:10])  # Unzip the word-count pairs
+    fig = go.Figure([go.Bar(x=words, y=counts)])
+    fig.update_layout(title="Top 10 Emotions", xaxis_title="Words", yaxis_title="Count")
+    return fig
+
+@app.callback(                 # TreeMap
+    Output('treemap', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def create_treemap(start_date, end_date):
+    dff_c = df_cnt.copy()
+    dff_c = dff_c[(dff_c['date'] >= start_date) & (dff_c['date'] <= end_date)]
+    dff_c = dff_c[dff_c['trauma'] == 'YES']  # Filter rows where trauma is "yes"
+    trauma_by_age = dff_c.groupby('age').size().reset_index(name='count')  # Group by age and count occurrences
+    fig = px.treemap(trauma_by_age, path=['age'], values='count', title='Count of Trauma by Age')
+    return fig
+
+
+@app.callback(                 # Doughnut graph
+    Output('doughnut-graph', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def create_doughnut_graph(start_date, end_date):
+    dff_c = df_cnt.copy()
+    dff_c = dff_c[(dff_c['date'] >= start_date) & (dff_c['date'] <= end_date)]
+    aai_counts = dff_c['ai'].value_counts()
+    fig = px.pie(names=aai_counts.index, values=aai_counts.values, hole=0.5, title='AI assistance ')
+    return fig
+
+@app.callback(                 # Funnel chart
+    Output('funnel-chart', 'figure'),
+    Input('my-date-picker-start', 'date'),
+    Input('my-date-picker-end', 'date'),
+)
+def create_funnel_graph(start_date, end_date):
+    dff_c = df_cnt.copy()
+    dff_c = dff_c[(dff_c['date'] >= start_date) & (dff_c['date'] <= end_date)]
+    dff_c = dff_c[(dff_c['support'] == 'No') & (dff_c['companion'] == 'Yes')]
+    funnel_data = dff_c.groupby('age').size().reset_index(name='count')
+    funnel_data = funnel_data.sort_values(by='count', ascending=False)
+    fig = go.Figure(go.Funnel(y=funnel_data['age'], x=funnel_data['count'], textinfo="value+percent previous"))
+    fig.update_layout(title="Funnel Chart by Age Group")
+    return fig
 
 
 
